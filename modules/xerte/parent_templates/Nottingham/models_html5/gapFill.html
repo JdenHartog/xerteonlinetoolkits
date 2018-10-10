@@ -149,11 +149,11 @@
 
             allDropDownAnswers = [];
             for (var i=0; i<passageArray.length; i++) {
-				tabIndex++;
 				if (markedWord == false) {
-					gapFillStr += '<span tabindex="' + tabIndex + '">' + passageArray[i] + '</span>';
+					gapFillStr += '<span>' + passageArray[i] + '</span>';
 					markedWord = true;
 				} else {
+					tabIndex++;
 					decodedAnswer = $("<textarea/>").html(passageArray[i]).text();
 					if (x_currentPageXML.getAttribute("interactivity") == "Drag Drop") {
 						gapFillStr += '<span id="gap' + (i-1)/2 + '" class="target highlight" tabindex="' + tabIndex + '">' + decodedAnswer + '</span>';
