@@ -397,9 +397,9 @@
 						var $this = $(this);
 
 						setTimeout(function() {
-							currvalue = $this.val();
+							currvalue = $this.val().trim();
 							if (!casesensitive) {
-								currvalue = $this.val().toLowerCase();
+								currvalue = currvalue.toLowerCase();
 							}
 							if (answerData[$this.data("index")].indexOf(currvalue) != -1) { // correct
 								$this
