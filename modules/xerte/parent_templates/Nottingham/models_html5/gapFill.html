@@ -186,7 +186,7 @@
 						gapFillStr += '</select>';
 						
 					} else { // fill in the blank
-						gapFillStr += '<input type="text" id="gap' + (i-1)/2 + '" value="' + decodedAnswer + '" tabindex="' + tabIndex + '"/>';
+						gapFillStr += '<input type="text" id="gap' + (i-1)/2 + '" value="' + decodedAnswer + '" tabindex="' + tabIndex + '" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false"/>';
 
 						var tempArray = [];
 						tempArray = decodedAnswer.split(delimiter);
@@ -393,13 +393,13 @@
 
 				$targetHolder.find("input")
 					.addClass("incorrect")
-					.on("keypress", function() {
+					.on("keyup", function() {
 						var $this = $(this);
 
 						setTimeout(function() {
-							currvalue = $this.val();
+							currvalue = $this.val().trim();
 							if (!casesensitive) {
-								currvalue = $this.val().toLowerCase();
+								currvalue = currvalue.toLowerCase();
 							}
 							if (answerData[$this.data("index")].indexOf(currvalue) != -1) { // correct
 								$this
